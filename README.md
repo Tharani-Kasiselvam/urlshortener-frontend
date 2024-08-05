@@ -6,3 +6,4 @@ Installed:
 &emsp; - react-bootstrap   
 
 *Completed - Home Page & Registration Page functionalities*
+
