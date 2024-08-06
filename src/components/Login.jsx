@@ -77,18 +77,18 @@ const Login = () => {
                 <div className="card-body">
                   <form onSubmit={userFormik.handleSubmit}>
                     <div className="mb-3">
-                      <label htmlFor="email" className="form-label">Email Id</label>
+                      <label htmlFor="email" className="form-label">User Name</label>
                       <input type="email" className="form-control" id="email" 
                         {...userFormik.getFieldProps('email')}/>
                     </div>
-                    {userFormik.errors.email ? <div style={error_style}>{registerFormik.errors.email}</div> : null}
+                    {userFormik.errors.email ? <div style={error_style}>{userFormik.errors.email}</div> : null}
                     <br />
                      <div className="mb-3">
                       <label htmlFor="password" className="form-label">Password</label>
                       <input type="password" className="form-control" id="password" 
                         {...userFormik.getFieldProps('password')}/>
                     </div>
-                    {userFormik.errors.password ? <div style={error_style}>{registerFormik.errors.password}</div> : null}
+                    {userFormik.errors.password ? <div style={error_style}>{userFormik.errors.password}</div> : null}
                     <br />
                     <button type="submit" className="btn btn-primary">Login</button>
               </form>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import registerServices from '../services/registerServices';
 import { useFormik } from "formik";
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 import { useToast } from "./ToastContext";
 
 
@@ -39,7 +39,7 @@ const Register = () => {
 
       registerServices.register(values.firstname, values.lastname,values.email, values.password)
       .then((response) => {
-        toast.addToast(`Success: ${response.data.message}`,"success")
+        toast.addToast(`Registration Success: ${response.data.message}`,"success")
         console.log(response.data.message)
         registerFormik.resetForm()
       }).catch(error => {
@@ -101,7 +101,7 @@ const Register = () => {
             </div>
           </div>
         </div>
-        <ToastContainer position="top-center" theme="colored" className="p-3 text-align-center"/>
+        {/* <ToastContainer position="top-center" theme="colored" className="p-3 text-align-center"/> */}
       </div>
   )
 }

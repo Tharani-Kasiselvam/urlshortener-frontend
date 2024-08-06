@@ -28,7 +28,6 @@ export const ToastProvider = ({ children }) => {
                             autohide 
                             bg= {variant}
                             className = 'd-inline-block m-1 text-white text-align-center'
-
                         >
                             <Toast.Body>
                                 <b>{message}</b>

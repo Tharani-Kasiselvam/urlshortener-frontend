@@ -11,7 +11,12 @@ const registerServices = {
             lastname,
             email,
             password
-        });
+        })
+    },
+
+    activateAccount: async (userId, tokenStr) => {
+        // make a POST request to Activate the Account
+        return await instance.post(`/activateAccount/${userId}/${tokenStr}`)
     }
 }
 
