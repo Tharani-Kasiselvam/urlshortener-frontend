@@ -94,6 +94,7 @@ const Login = () => {
               </form>
               <br />
               <p>Don't have an account? <Link to="/register">Register</Link></p>
+              <p>Forgot Password? <Link to="/forgotpwd">Click Here</Link></p>
                 </div>
               </div>
             </div>

@@ -3,6 +3,8 @@ import HomeNav from "./wrappers/HomeNav";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import ActivateAccount from "./components/ActivateAccount";
+import ForgotPassowrd from "./components/ForgotPassowrd";
+import AccountRecovery from "./components/AccountRecovery";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
       {
         path: "/activateAccount/:userId/:tokenStr",
         element: <ActivateAccount />
+      },
+      {
+        path : "/forgotpwd",
+        element : <ForgotPassowrd />
+      },
+      {
+        path : "/password-reset/:userId/:tokenStr",
+        element : <AccountRecovery />
       }
     ]
   }

@@ -13,3 +13,5 @@ Account Activation & its validation
     - If user is valid and Inactive - based on token expiry Account will be Activated.
     - If activation link expires, registration entry will be revoked and advising user to re-register
     - if Activation link is success, guiding user to login
+
+Forgot Password Page/Password Reset and its validation - enabled a model to handle the token
