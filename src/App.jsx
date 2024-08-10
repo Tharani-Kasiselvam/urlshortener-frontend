@@ -38,10 +38,6 @@ const router = createBrowserRouter([
         element : <AccountRecovery />
       },
       {
-        path : "/password-reset/:userId/:tokenStr",
-        element : <AccountRecovery />
-      },  
-      {
         path : "/urlshort",
         element : <URLShortner />
       },
