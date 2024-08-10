@@ -1,17 +1,14 @@
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
+import { useToast } from "./ToastContext";
+import loginServices from "../services/loginServices"
 
 const Login = () => {
+  const toast = useToast()
+  const navigate = useNavigate()
 
   const validate = (values) => {
     const errors = {}
-
-    if (!values.firstname)
-        errors.firstname = "Enter Student First Name"
-
-    if (!values.lastname)
-    errors.lastname = "Enter Student Last Name"
 
     if (!values.email)
     errors.email = "Enter Student Email Id"
@@ -30,37 +27,16 @@ const Login = () => {
     validate,
     onSubmit : values => {
       console.log("Formik submission")
-      // handleLogin();
-    }
+      loginServices.login(values.email,values.password)
+      .then(response => {
+        toast.addToast('Logged In Successfully','success')
+        userFormik.resetForm()
+      })
+      .catch(error => {
+        console.log(error)
+        toast.addToast(`Login Failed: ${error.response.data.error}`,'danger')
+      });       }
   })
-
-  const handleLogin = (e) => {
-
-    e.preventDefault(); 
-
-    //NEED TO VERIFY BELOW FUNCTION PARAMS
-
-    // perform user login
-    // userServices.login(email, password)
-    //   .then(response => {
-    //     // alert(response.data.message);
-    //     toast.addToast('Login Success','success')
-
-    //     // clear the form
-    //     setEmail("");
-    //     setPassword("");
-
-    //     // redirect to dashboard page
-    //     setTimeout(() => {
-    //       navigate("/dashboard");
-    //     }, 500);
-
-    //   })
-    //   .catch(error => {
-    //     // alert(error.response.data.message);
-    //     toast.addToast(`Login Failed: ${error.response.data.message}`)
-    //   });
-  }
 
   const error_style = {
     color: "red"
@@ -71,12 +47,12 @@ const Login = () => {
           <div className="row">
             <div className="col-md-6 offset-md-3">
               <div className="card">
-                <div className="card-header">
+                <div className="card-header" id="login-hdr">
                   Login
                 </div>
                 <div className="card-body">
-                  <form onSubmit={userFormik.handleSubmit}>
-                    <div className="mb-3">
+                <form onSubmit={userFormik.handleSubmit}>
+                <div className="mb-3">
                       <label htmlFor="email" className="form-label">User Name</label>
                       <input type="email" className="form-control" id="email" 
                         {...userFormik.getFieldProps('email')}/>

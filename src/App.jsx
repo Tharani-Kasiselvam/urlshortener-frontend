@@ -5,6 +5,8 @@ import Login from "./components/Login";
 import ActivateAccount from "./components/ActivateAccount";
 import ForgotPassowrd from "./components/ForgotPassowrd";
 import AccountRecovery from "./components/AccountRecovery";
+import URLShortner from "./components/URLShortner";
+import ShortURLDashboard from "./components/ShortURLDashboard";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +15,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        element: <Login />
+      },
+      {
+        path: "/login",
         element: <Login />
       },
       {
@@ -30,6 +36,22 @@ const router = createBrowserRouter([
       {
         path : "/password-reset/:userId/:tokenStr",
         element : <AccountRecovery />
+      },
+      {
+        path : "/password-reset/:userId/:tokenStr",
+        element : <AccountRecovery />
+      },  
+      {
+        path : "/urlshort",
+        element : <URLShortner />
+      },
+      {
+        path : "/:shorturl",
+        element : <URLShortner />
+      },
+      {
+        path : "/dashboard",
+        element : <ShortURLDashboard />
       }
     ]
   }

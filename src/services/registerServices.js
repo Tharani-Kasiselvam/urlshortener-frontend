@@ -20,5 +20,5 @@ const registerServices = {
     }
 }
 
-// export the user services
+// export the register services
 export default registerServices;

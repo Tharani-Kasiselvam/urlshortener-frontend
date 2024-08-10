@@ -59,7 +59,7 @@ const Register = () => {
           <div className="row">
             <div className="col-md-6 offset-md-3">
               <div className="card">
-                <div className="card-header">
+                <div className="card-header" id="reg-hdr">
                   Register
                 </div>
                 <div className="card-body">
